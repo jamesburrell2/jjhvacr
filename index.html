@@ -669,10 +669,33 @@
             });
         });
 
-        // Form submission handler
+        // Form submission handler for Google Apps Script
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will contact you soon at (301) 246-0111 to discuss your HVAC needs.');
+            
+            const formData = new FormData(this);
+            const actionUrl = this.getAttribute('action');
+            
+            if (actionUrl === 'https://script.google.com/macros/s/AKfycbzICwlurO0hTqvD6Bubl2fOURsmwnIwB5nx4qso5A_fQDRdU3OrTUTwy-dp7nWulA/exec') {
+                alert('Please replace YOUR_GOOGLE_SCRIPT_URL_HERE with your actual Google Apps Script URL');
+                return;
+            }
+            
+            fetch(actionUrl, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Thank you for your message! We will contact you soon from (301) 246-0111 to discuss your HVAC needs.');
+                    this.reset(); // Clear the form
+                } else {
+                    alert('There was an error submitting your form. Please call us at (301) 246-0111.');
+                }
+            })
+            .catch(error => {
+                alert('There was an error submitting your form. Please call us at (301) 246-0111.');
+            });
         });
 
         // Add scroll effect to header
