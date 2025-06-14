@@ -617,7 +617,7 @@
                 
                 <div class="contact-form">
                     <h3>Request a Free Estimate</h3>
-                    <form>
+                    <form class="contact-form" action="https://script.google.com/macros/s/AKfycbzICwlurO0hTqvD6Bubl2fOURsmwnIwB5nx4qso5A_fQDRdU3OrTUTwy-dp7nWulA/exec" method="POST">
                         <div class="form-group">
                             <label for="name">Name:</label>
                             <input type="text" id="name" name="name" required>
@@ -690,11 +690,11 @@
                     alert('Thank you for your message! We will contact you soon from (301) 246-0111 to discuss your HVAC needs.');
                     this.reset(); // Clear the form
                 } else {
-                    alert('There was an error submitting your form. Please call us at (301) 246-0111.');
+                    alert('There was an error submitting your form. Please call us at (301) 246-0111 to schedule an appointment.');
                 }
             })
             .catch(error => {
-                alert('There was an error submitting your form. Please call us at (301) 246-0111.');
+                alert('There was an error submitting your form. Please call us at (301) 246-0111 to schedule an appointment.');
             });
         });
 
